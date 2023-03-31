@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<style> table, th, tr, td {
+    border: 1px solid black;
+}
+h1 {
+    text-align: center;
+}
+table.center {
+    margin-left: auto;
+    margin-right: auto;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>GetAll</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="w-50 border border-primary m-2 p-5">
+            <h1>Welcome</h1>
+            <table class="table table-hover">
+                <tr class="success">
+                    <th> Id</th>
+                    <th> Score</th>
+                    <th> Credit</th>
+                </tr>
+                <tbody>
+                <tr th:each="list : ${all}" class="info">
+                    <td><span th:text="${list.id}"> id </span></td>
+                    <td><span th:text="${list.score}"> score </span></td>
+                    <td><span th:text="${list.credit}"> credit </span></td>
+                </tr>
+                </tbody>
+            </table>
+            <br>
+            <td th:text="${result}">result</td>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="w-50 border border-primary m-2 p-5">
+            <h1>Welcome</h1>
+            <form action="/api/addMark" method="GET">
+                <label>
+                    Score:
+                    <input type="text" name="score"/>
+                </label><br>
+                <label>
+                    Credit:
+                    <input type="text" name="credit"/>
+                </label>
+                <input type="submit" value="submit"/>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
