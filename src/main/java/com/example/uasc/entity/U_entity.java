@@ -1,8 +1,8 @@
 package com.example.uasc.entity;
-
 import jakarta.persistence.*;
-import lombok.*;
-
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
 @Table(name = "Post")
@@ -10,14 +10,13 @@ import lombok.*;
 @AllArgsConstructor
 public class U_entity {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "Id")
     private Long id;
     @Column(name = "score")
     private Long score;
     @Column(name = "credit")
     private Long credit;
-
     public U_entity(Long score, Long credit) {
         this.score = score;
         this.credit = credit;
