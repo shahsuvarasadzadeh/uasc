@@ -6,10 +6,8 @@ import com.example.uasc.service.U_inter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @Controller
 @RequestMapping(path = "/api")
@@ -29,13 +27,12 @@ public class UASCController {
         result(model);
         return "hello";
     }
-    @PostMapping(path = "/delete")
-    public String delete(@RequestParam Long id, Model model) {
+    @GetMapping (path = "/delete/{id}")
+    public String delete(@PathVariable Long id, Model model) {
         uInter.getDelete(id);
         result(model);
         return "hello";
     }
-
     @PostMapping(path = "/update")
     public String updateMark(Model model, @RequestParam Long id,
                              @RequestParam Long score, @RequestParam Long credit) {
