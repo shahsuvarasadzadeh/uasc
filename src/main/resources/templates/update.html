@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<style> table, th, tr, td {
+    border: 1px solid black;
+    position: relative;
+    text-align: center;
+    font-size: large;
+}
+.container {
+    position: relative;
+}
+h1 {
+    text-align: center;
+}
+</style>
+<head>
+    <meta charset="UTF-8">
+    <title>GetAll</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+</head>
+<body>
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="w-50 border border-primary m-2 p-5">
+            <h1>Update Mark</h1>
+            <form th:action="@{/api/update/{id}(id=${mark.id})}"
+                  th:object="${mark}" method="POST">
+                <div class="form-group">
+                    <label> Lesson score </label>
+                    <input
+                            type="text"
+                            name="score"
+                            th:field="*{score}"
+                            class="form-control"
+                            placeholder="Enter score"
+                    />
+                </div>
+                <div class="form-group">
+                    <label> Lesson credit </label>
+                    <input
+                            type="text"
+                            name="credit"
+                            th:field="*{credit}"
+                            class="form-control"
+                            placeholder="Enter credit"
+                    />
+                </div>
+                <div class="box-footer">
+                    <button type="submit" class="btn btn-primary">
+                        Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
