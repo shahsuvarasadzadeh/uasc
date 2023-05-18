@@ -5,13 +5,15 @@ import com.example.uasc.dto.U_update;
 import com.example.uasc.entity.U_entity;
 import com.example.uasc.exceptions.NotFoundException;
 import com.example.uasc.repository.U_repository;
-import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.List;
 @Service
-@RequiredArgsConstructor
 public class U_service implements U_inter {
     private final U_repository uRepository;
+    public U_service(U_repository uRepository) {
+        this.uRepository = uRepository;
+    }
+
     @Override
     public void addmark(U_create uCreate) {
         final U_entity uEntity;
@@ -37,5 +39,10 @@ public class U_service implements U_inter {
                 -> new NotFoundException("pls include correct value"));
         uEntity.setScore(uDto.getScore());
         uEntity.setCredit(uDto.getCredit());
+    }
+    @Override
+    public U_entity getMarkById(Long id) {
+        U_entity uEntity = uRepository.findById(id).get();
+        return uEntity;
     }
 }
