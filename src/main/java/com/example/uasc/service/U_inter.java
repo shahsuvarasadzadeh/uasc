@@ -8,4 +8,5 @@ public interface U_inter {
     List<U_entity> getmark();
     void getDelete(Long id);
     void updateMark(U_update uUpdate);
+    U_entity getMarkById(Long id);
 }
