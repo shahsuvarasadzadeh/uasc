@@ -27,17 +27,23 @@ public class UASCController {
         result(model);
         return "hello";
     }
-    @GetMapping (path = "/delete/{id}")
+    @GetMapping(path = "/delete/{id}")
     public String delete(@PathVariable Long id, Model model) {
         uInter.getDelete(id);
         result(model);
         return "hello";
     }
-    @PostMapping(path = "/update")
-    public String updateMark(Model model, @RequestParam Long id,
-                             @RequestParam Long score, @RequestParam Long credit) {
-        U_update uDto = new U_update(id, score, credit);
-        uInter.updateMark(uDto);
+
+    @GetMapping(path = "/update/{id}")
+    public String toUpdate(@PathVariable Long id, Model model) {
+        model.addAttribute("mark", uInter.getMarkById(id));
+        return "update";
+    }
+
+    @PostMapping(path = "/update/{id}")
+    public String updateMark(Model model, @PathVariable Long id,
+                             @ModelAttribute("mark") U_update entity) {
+        uInter.updateMark(entity);
         result(model);
         return "hello";
     }
