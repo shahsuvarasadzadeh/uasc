@@ -5,12 +5,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 @Entity
 @NoArgsConstructor
-@Table(name = "Post")
+@Table(name = "post")
 @Data
 @AllArgsConstructor
 public class U_entity {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "Id")
     private Long id;
     @Column(name = "score")
