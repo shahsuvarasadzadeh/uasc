@@ -24,6 +24,7 @@ public class UASCController {
     }
     @GetMapping(path = "/welcome")
     public String welcome(Model model) {
+        uInter.deleteAll();
         result(model);
         return "hello";
     }
@@ -45,6 +46,11 @@ public class UASCController {
                              @ModelAttribute("mark") U_update entity) {
         uInter.updateMark(entity);
         result(model);
+        return "hello";
+    }
+    @GetMapping(path = "deleteAll")
+    public String deleteAll(){
+        uInter.deleteAll();
         return "hello";
     }
     public void result(Model model) {
