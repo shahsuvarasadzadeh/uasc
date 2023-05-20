@@ -45,4 +45,9 @@ public class U_service implements U_inter {
         U_entity uEntity = uRepository.findById(id).get();
         return uEntity;
     }
+
+    @Override
+    public void deleteAll() {
+        uRepository.deleteAll();
+    }
 }
