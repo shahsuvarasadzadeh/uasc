@@ -9,4 +9,6 @@ public interface U_inter {
     void getDelete(Long id);
     void updateMark(U_update uUpdate);
     U_entity getMarkById(Long id);
+
+    void deleteAll();
 }
