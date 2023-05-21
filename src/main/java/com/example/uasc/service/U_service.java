@@ -42,8 +42,7 @@ public class U_service implements U_inter {
     }
     @Override
     public U_entity getMarkById(Long id) {
-        U_entity uEntity = uRepository.findById(id).get();
-        return uEntity;
+        return uRepository.findById(id).get();
     }
 
     @Override
